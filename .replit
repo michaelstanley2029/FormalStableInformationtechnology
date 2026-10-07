@@ -17,7 +17,7 @@ mode = "parallel"
 
 [[workflows.workflow.tasks]]
 name = "LIFE.exe dev server"
-command = "pnpm run dev"
+command = "corepack pnpm run dev"
 
 [agent]
 stack = "PNPM_WORKSPACE"
