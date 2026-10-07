@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "LIFE.exe"
+description = "A mobile-first, witty Nigerian-flavored life choice game with local handcrafted events, branching consequences, multiple endings, and device-saved progress."
+version = "1.0.0"
+id = "artifacts/life-exe"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18544
+
+[services.development]
+run = "pnpm --filter @workspace/life-exe run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/life-exe", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/life-exe/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18544"
+BASE_PATH = "/"
