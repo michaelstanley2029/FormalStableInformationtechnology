@@ -11,6 +11,14 @@ env = { "CI" = "true" }
 [workflows]
 runButton = "Project"
 
+[[workflows.workflow]]
+name = "Dev"
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+name = "LIFE.exe dev server"
+command = "pnpm run dev"
+
 [agent]
 stack = "PNPM_WORKSPACE"
 expertMode = true
